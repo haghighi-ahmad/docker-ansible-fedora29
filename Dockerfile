@@ -7,10 +7,12 @@ RUN dnf -y update && dnf clean all
 # Install ansible and other requirements.
 RUN dnf --refresh -y install \
     python-pip \
+    python3-pip \
     ansible \
     sudo \
     which \
     python3-dnf \
+    python2-dnf \
   && dnf clean all
 
 # Install Ansible inventory file.
