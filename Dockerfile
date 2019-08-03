@@ -18,7 +18,7 @@ RUN dnf --refresh -y install \
   && dnf clean all
 
 # Install Ansible inventory file.
-RUN mkdir -p /etc/ansible && echo -e '[local]\nlocalhost ansible_connection=local ansible_python_interpreter=python3' > /etc/ansible/hosts
+RUN mkdir -p /etc/ansible && echo -e '[local]\nlocalhost ansible_connection=local ansible_python_interpreter=python2' > /etc/ansible/hosts
 
 # Fix ansible 
 VOLUME ["/sys/fs/cgroup", "/tmp", "/run"]
