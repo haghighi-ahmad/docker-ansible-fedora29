@@ -8,7 +8,7 @@ RUN dnf -y update && dnf clean all
 RUN dnf --refresh -y install \
     python-pip \
     python3-pip \
-    ansible \
+    #ansible \
     sudo \
     which \
     python3-dnf \
@@ -16,6 +16,10 @@ RUN dnf --refresh -y install \
     yum-plugin-ovl \
     dnf-plugin-ovl \
   && dnf clean all
+
+
+# Install Ansible via pip
+RUN pip2 install ansible
 
 # Install Ansible inventory file.
 RUN mkdir -p /etc/ansible && echo -e '[local]\nlocalhost ansible_connection=local ansible_python_interpreter=python2' > /etc/ansible/hosts
