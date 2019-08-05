@@ -19,7 +19,7 @@ RUN dnf --refresh -y install \
 
 
 # Install Ansible via pip
-RUN pip2 install ansible
+RUN pip2 install ansible cryptography && pip3 install dnf cryptography
 
 # Install Ansible inventory file.
 RUN mkdir -p /etc/ansible && echo -e '[local]\nlocalhost ansible_connection=local ansible_python_interpreter=python2' > /etc/ansible/hosts
